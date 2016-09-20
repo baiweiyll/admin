@@ -39,8 +39,8 @@
 							 targetProject="${targetJavaProject}" type="XMLMAPPER" />
 
 
-		<table tableName="t_plat_ability" domainObjectName="Ability" enableSelectByExample="true">
-			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		<table tableName="sys_menu" domainObjectName="Menu" enableSelectByExample="true">
+			<generatedKey column="id" sqlStatement="select SEQ_ID.nextval from dual" identity="true" />
 
 		</table>
 
