@@ -19,4 +19,10 @@ public class IndexController {
     public String index(){
         return "index";
     }
+
+
+    @RequestMapping(value = "layout",method = RequestMethod.GET)
+    public String layout(){
+        return "layout/layout";
+    }
 }

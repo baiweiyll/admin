@@ -45,7 +45,6 @@
         <logback.version>1.1.7</logback.version>
         <!-- log version start -->
 
-
         <!-- validator version start -->
         <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
         <!-- validator version end -->
@@ -58,6 +57,12 @@
         <webserver.port>8888</webserver.port>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- environment setting end-->
+
+        <!-- web start -->
+        <sitemesh.version>3.0.1</sitemesh.version>
+        <jstl.version>1.2</jstl.version>
+        <standard.version>1.1.2</standard.version>
+        <!-- web end -->
     </properties>
 
     <dependencies>
@@ -195,6 +200,28 @@
             <version>${mapper.version}</version>
         </dependency>
         <!--   database end  -->
+
+        <!-- web start -->
+        <!-- layout start -->
+        <dependency>
+            <groupId>org.sitemesh</groupId>
+            <artifactId>sitemesh</artifactId>
+            <version>${sitemesh.version}</version>
+        </dependency>
+        <!-- layout end -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>${standard.version}</version>
+        </dependency>
+        <!-- web end -->
+
 
     </dependencies>
 
