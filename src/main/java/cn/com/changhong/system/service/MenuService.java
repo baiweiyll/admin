@@ -12,4 +12,6 @@ import cn.com.changhong.system.model.Menu;
  * @author <a href="mailto:wei.bai@changhong.com">白伟</a>
  */
 public interface MenuService extends BaseService<Menu>{
+
+    public String getMenuByUserId(String userId);
 }

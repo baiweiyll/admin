@@ -83,11 +83,6 @@ public class Menu {
      */
     private String remarks;
 
-    /**
-     * 删除标记
-     */
-    @Column(name = "del_flag")
-    private String delFlag;
 
     /**
      * 获取编号
@@ -341,21 +336,4 @@ public class Menu {
         this.remarks = remarks;
     }
 
-    /**
-     * 获取删除标记
-     *
-     * @return del_flag - 删除标记
-     */
-    public String getDelFlag() {
-        return delFlag;
-    }
-
-    /**
-     * 设置删除标记
-     *
-     * @param delFlag 删除标记
-     */
-    public void setDelFlag(String delFlag) {
-        this.delFlag = delFlag;
-    }
 }
