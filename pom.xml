@@ -49,15 +49,6 @@
         <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
         <!-- validator version end -->
 
-        <!-- environment setting start-->
-        <jdk.version>1.8</jdk.version>
-        <compiler-plugin.version>3.5.1</compiler-plugin.version>
-        <maven-war-plugin.version>2.6</maven-war-plugin.version>
-        <jetty.version>9.3.11.v20160721</jetty.version>
-        <webserver.port>8888</webserver.port>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- environment setting end-->
-
         <!-- web start -->
         <sitemesh.version>3.0.1</sitemesh.version>
         <jstl.version>1.2</jstl.version>
@@ -67,6 +58,15 @@
         <!-- util start -->
         <commons-lang3.version>3.3.2</commons-lang3.version>
         <!-- util end -->
+
+        <!-- environment setting start-->
+        <jdk.version>1.8</jdk.version>
+        <compiler-plugin.version>3.5.1</compiler-plugin.version>
+        <maven-war-plugin.version>2.6</maven-war-plugin.version>
+        <jetty.version>9.3.11.v20160721</jetty.version>
+        <webserver.port>8880</webserver.port>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- environment setting end-->
     </properties>
 
     <dependencies>
@@ -292,9 +292,10 @@
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
-                    <httpConnector>
+<!--                    <httpConnector>
                         <port>${webserver.port}</port>
-                    </httpConnector>
+                    </httpConnector>-->
+                    <jettyXml>jetty.xml</jettyXml>
                 </configuration>
             </plugin>
         </plugins>
