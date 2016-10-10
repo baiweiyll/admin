@@ -1,11 +1,15 @@
 package cn.com.changhong.system.controller;
 
+import cn.com.changhong.system.model.Menu;
 import cn.com.changhong.system.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import tk.mybatis.mapper.entity.Example;
+
+import java.util.List;
 
 /**
  * 功能描述<p>
@@ -26,6 +30,12 @@ public class MenuController {
     public String layout(Model model){
         model.addAttribute("menus",menuService.getMenuByUserId("4a5f7522-8478-11e6-b3c3-005056b14ad6"));
         return "layout/layout";
+    }
+
+    @RequestMapping(value = "menu",method = RequestMethod.GET)
+    public String menu(Model model){
+        model.addAttribute("menus",menuService.getTreeTable());
+        return "system/menuList";
     }
 
 }

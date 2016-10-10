@@ -46,7 +46,9 @@
     <link href="${ctx}/static/assets/layouts/layout/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
     <link href="${ctx}/static/assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="${ctx}/static/favicon.ico" /> </head>
+    <link rel="shortcut icon" href="${ctx}/static/favicon.ico" />
+    <script src="${ctx}/static/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+</head>
 <!-- END HEAD -->
 
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
@@ -1070,7 +1072,7 @@
 <script src="${ctx}/static/assets/global/plugins/ie8.fix.min.js"></script>
 <![endif]-->
 <!-- BEGIN CORE PLUGINS -->
-<script src="${ctx}/static/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+
 <script src="${ctx}/static/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="${ctx}/static/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
 <script src="${ctx}/static/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>

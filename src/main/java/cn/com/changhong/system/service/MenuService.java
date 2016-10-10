@@ -3,6 +3,8 @@ package cn.com.changhong.system.service;
 import cn.com.changhong.common.service.BaseService;
 import cn.com.changhong.system.model.Menu;
 
+import java.util.List;
+
 /**
  * 功能菜单服务接口<p>
  * 项目 : admin<p>
@@ -14,4 +16,6 @@ import cn.com.changhong.system.model.Menu;
 public interface MenuService extends BaseService<Menu>{
 
     public String getMenuByUserId(String userId);
+
+    public List<Menu> getTreeTable();
 }
