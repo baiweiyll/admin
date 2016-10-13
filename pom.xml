@@ -285,7 +285,7 @@
                 <configuration>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <webApp>
-                        <contextPath>/</contextPath>
+                        <contextPath>/admin</contextPath>
                     </webApp>
 <!--                    <httpConnector>
                         <port>${webserver.port}</port>

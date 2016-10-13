@@ -1,9 +1,9 @@
-<link href="${ctx}/static/assets/pages/css/about.min.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/static/js/assets/pages/css/about.min.css" rel="stylesheet" type="text/css" />
 <div class="row margin-bottom-20 stories-cont">
     <div class="col-lg-3 col-md-6">
         <div class="portlet light">
             <div class="photo">
-                <img src="${ctx}/static/assets/pages/media/users/teambg1.jpg" alt="" class="img-responsive" /> </div>
+                <img src="${ctx}/static/js/assets/pages/media/users/teambg1.jpg" alt="" class="img-responsive" /> </div>
             <div class="title">
                 <span> Mark Wahlberg </span>
             </div>
@@ -15,7 +15,7 @@
     <div class="col-lg-3 col-md-6">
         <div class="portlet light">
             <div class="photo">
-                <img src="${ctx}/static/assets/pages/media/users/teambg2.jpg" alt="" class="img-responsive" /> </div>
+                <img src="${ctx}/static/js/assets/pages/media/users/teambg2.jpg" alt="" class="img-responsive" /> </div>
             <div class="title">
                 <span> Lindsay Lohan </span>
             </div>
@@ -27,7 +27,7 @@
     <div class="col-lg-3 col-md-6">
         <div class="portlet light">
             <div class="photo">
-                <img src="${ctx}/static/assets/pages/media/users/teambg5.jpg" alt="" class="img-responsive" /> </div>
+                <img src="${ctx}/static/js/assets/pages/media/users/teambg5.jpg" alt="" class="img-responsive" /> </div>
             <div class="title">
                 <span> John Travolta </span>
             </div>
@@ -39,7 +39,7 @@
     <div class="col-lg-3 col-md-6">
         <div class="portlet light">
             <div class="photo">
-                <img src="${ctx}/static/assets/pages/media/users/teambg8.jpg" alt="" class="img-responsive" /> </div>
+                <img src="${ctx}/static/js/assets/pages/media/users/teambg8.jpg" alt="" class="img-responsive" /> </div>
             <div class="title">
                 <span> Tom Brady </span>
             </div>

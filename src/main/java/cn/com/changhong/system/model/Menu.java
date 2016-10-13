@@ -43,11 +43,6 @@ public class Menu {
      */
     private String icon;
 
-    /**
-     * 是否在菜单中显示
-     */
-    @Column(name = "is_show")
-    private String isShow;
 
     /**
      * 权限标识
@@ -210,23 +205,6 @@ public class Menu {
         this.icon = icon;
     }
 
-    /**
-     * 获取是否在菜单中显示
-     *
-     * @return is_show - 是否在菜单中显示
-     */
-    public String getIsShow() {
-        return isShow;
-    }
-
-    /**
-     * 设置是否在菜单中显示
-     *
-     * @param isShow 是否在菜单中显示
-     */
-    public void setIsShow(String isShow) {
-        this.isShow = isShow;
-    }
 
     /**
      * 获取权限标识

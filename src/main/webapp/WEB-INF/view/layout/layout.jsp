@@ -6,8 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" scope = "application"/>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
@@ -25,11 +25,11 @@
           name="description" />
     <meta content="" name="author" />
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="${ctx}/static/assets/global/css/google/google-font-css.css" rel="stylesheet" type="text/css" />
-    <link href="${ctx}/static/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="${ctx}/static/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="${ctx}/static/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="${ctx}/static/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/js/assets/global/css/google/google-font-css.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/js/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/js/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/js/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/js/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
 
@@ -37,17 +37,17 @@
 
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
-    <link href="${ctx}/static/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-    <link href="${ctx}/static/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/js/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="${ctx}/static/js/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME GLOBAL STYLES -->
 
     <!-- BEGIN THEME LAYOUT STYLES -->
-    <link href="${ctx}/static/assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
-    <link href="${ctx}/static/assets/layouts/layout/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-    <link href="${ctx}/static/assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/js/assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/js/assets/layouts/layout/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="${ctx}/static/js/assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="${ctx}/static/favicon.ico" />
-    <script src="${ctx}/static/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="${ctx}/static/js/favicon.ico" />
+    <script src="${ctx}/static/js/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 </head>
 <!-- END HEAD -->
 
@@ -60,7 +60,7 @@
             <!-- BEGIN LOGO -->
             <div class="page-logo">
                 <a href="index.html">
-                    <img src="${ctx}/static/assets/layouts/layout/img/logo.png" alt="logo" class="logo-default" /> </a>
+                    <img src="${ctx}/static/js/assets/layouts/layout/img/logo.png" alt="logo" class="logo-default" /> </a>
                 <div class="menu-toggler sidebar-toggler">
                     <span></span>
                 </div>
@@ -195,7 +195,7 @@
                                     <li>
                                         <a href="#">
                                                     <span class="photo">
-                                                        <img src="${ctx}/static/assets/layouts/layout/img/avatar2.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="${ctx}/static/js/assets/layouts/layout/img/avatar2.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Lisa Wong </span>
                                                         <span class="time">Just Now </span>
@@ -206,7 +206,7 @@
                                     <li>
                                         <a href="#">
                                                     <span class="photo">
-                                                        <img src="${ctx}/static/assets/layouts/layout/img/avatar3.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="${ctx}/static/js/assets/layouts/layout/img/avatar3.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Richard Doe </span>
                                                         <span class="time">16 mins </span>
@@ -217,7 +217,7 @@
                                     <li>
                                         <a href="#">
                                                     <span class="photo">
-                                                        <img src="${ctx}/static/assets/layouts/layout/img/avatar1.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="${ctx}/static/js/assets/layouts/layout/img/avatar1.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Bob Nilson </span>
                                                         <span class="time">2 hrs </span>
@@ -228,7 +228,7 @@
                                     <li>
                                         <a href="#">
                                                     <span class="photo">
-                                                        <img src="${ctx}/static/assets/layouts/layout/img/avatar2.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="${ctx}/static/js/assets/layouts/layout/img/avatar2.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Lisa Wong </span>
                                                         <span class="time">40 mins </span>
@@ -239,7 +239,7 @@
                                     <li>
                                         <a href="#">
                                                     <span class="photo">
-                                                        <img src="${ctx}/static/assets/layouts/layout/img/avatar3.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="${ctx}/static/js/assets/layouts/layout/img/avatar3.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Richard Doe </span>
                                                         <span class="time">46 mins </span>
@@ -367,7 +367,7 @@
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <img alt="" class="img-circle" src="${ctx}/static/assets/layouts/layout/img/avatar3_small.jpg" />
+                            <img alt="" class="img-circle" src="${ctx}/static/js/assets/layouts/layout/img/avatar3_small.jpg" />
                             <span class="username username-hide-on-mobile"> Nick </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
@@ -448,7 +448,7 @@
                     <!-- END SIDEBAR TOGGLER BUTTON -->
                     <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
                     <li class="nav-item active" >
-                        <a href="${ctx}/index" class="nav-link">
+                        <a href="index" class="nav-link">
                             <i class="icon-home"></i>
                             <span class="title">Dashboard</span>
                             <span class="selected"></span>
@@ -472,16 +472,11 @@
                 <!-- END THEME PANEL -->
                 <!-- BEGIN PAGE BAR -->
                 <div class="page-bar">
-                    <ul class="page-breadcrumb">
+                    <ul class="page-breadcrumb" id="pageBar">
                         <li>
-                            <a href="index">Home</a>
-                            <i class="fa fa-circle"></i>
-                        </li>
-                        <li>
-                            <span>Dashboard</span>
+                            <span id="menuName">Dashboard</span>
                         </li>
                     </ul>
-
                 </div>
 
                 <div class="row" id="maincontent"></div>
@@ -547,14 +542,14 @@
                                     <div class="media-status">
                                         <span class="badge badge-success">8</span>
                                     </div>
-                                    <img class="media-object" src="${ctx}/static/assets/layouts/layout/img/avatar3.jpg" alt="...">
+                                    <img class="media-object" src="${ctx}/static/js/assets/layouts/layout/img/avatar3.jpg" alt="...">
                                     <div class="media-body">
                                         <h4 class="media-heading">Bob Nilson</h4>
                                         <div class="media-heading-sub"> Project Manager </div>
                                     </div>
                                 </li>
                                 <li class="media">
-                                    <img class="media-object" src="${ctx}/static/assets/layouts/layout/img/avatar1.jpg" alt="...">
+                                    <img class="media-object" src="${ctx}/static/js/assets/layouts/layout/img/avatar1.jpg" alt="...">
                                     <div class="media-body">
                                         <h4 class="media-heading">Nick Larson</h4>
                                         <div class="media-heading-sub"> Art Director </div>
@@ -564,14 +559,14 @@
                                     <div class="media-status">
                                         <span class="badge badge-danger">3</span>
                                     </div>
-                                    <img class="media-object" src="${ctx}/static/assets/layouts/layout/img/avatar4.jpg" alt="...">
+                                    <img class="media-object" src="${ctx}/static/js/assets/layouts/layout/img/avatar4.jpg" alt="...">
                                     <div class="media-body">
                                         <h4 class="media-heading">Deon Hubert</h4>
                                         <div class="media-heading-sub"> CTO </div>
                                     </div>
                                 </li>
                                 <li class="media">
-                                    <img class="media-object" src="${ctx}/static/assets/layouts/layout/img/avatar2.jpg" alt="...">
+                                    <img class="media-object" src="${ctx}/static/js/assets/layouts/layout/img/avatar2.jpg" alt="...">
                                     <div class="media-body">
                                         <h4 class="media-heading">Ella Wong</h4>
                                         <div class="media-heading-sub"> CEO </div>
@@ -584,7 +579,7 @@
                                     <div class="media-status">
                                         <span class="badge badge-warning">2</span>
                                     </div>
-                                    <img class="media-object" src="${ctx}/static/assets/layouts/layout/img/avatar6.jpg" alt="...">
+                                    <img class="media-object" src="${ctx}/static/js/assets/layouts/layout/img/avatar6.jpg" alt="...">
                                     <div class="media-body">
                                         <h4 class="media-heading">Lara Kunis</h4>
                                         <div class="media-heading-sub"> CEO, Loop Inc </div>
@@ -595,7 +590,7 @@
                                     <div class="media-status">
                                         <span class="label label-sm label-success">new</span>
                                     </div>
-                                    <img class="media-object" src="${ctx}/static/assets/layouts/layout/img/avatar7.jpg" alt="...">
+                                    <img class="media-object" src="${ctx}/static/js/assets/layouts/layout/img/avatar7.jpg" alt="...">
                                     <div class="media-body">
                                         <h4 class="media-heading">Ernie Kyllonen</h4>
                                         <div class="media-heading-sub"> Project Manager,
@@ -603,7 +598,7 @@
                                     </div>
                                 </li>
                                 <li class="media">
-                                    <img class="media-object" src="${ctx}/static/assets/layouts/layout/img/avatar8.jpg" alt="...">
+                                    <img class="media-object" src="${ctx}/static/js/assets/layouts/layout/img/avatar8.jpg" alt="...">
                                     <div class="media-body">
                                         <h4 class="media-heading">Lisa Stone</h4>
                                         <div class="media-heading-sub"> CTO, Keort Inc </div>
@@ -614,14 +609,14 @@
                                     <div class="media-status">
                                         <span class="badge badge-success">7</span>
                                     </div>
-                                    <img class="media-object" src="${ctx}/static/assets/layouts/layout/img/avatar9.jpg" alt="...">
+                                    <img class="media-object" src="${ctx}/static/js/assets/layouts/layout/img/avatar9.jpg" alt="...">
                                     <div class="media-body">
                                         <h4 class="media-heading">Deon Portalatin</h4>
                                         <div class="media-heading-sub"> CFO, H&D LTD </div>
                                     </div>
                                 </li>
                                 <li class="media">
-                                    <img class="media-object" src="${ctx}/static/assets/layouts/layout/img/avatar10.jpg" alt="...">
+                                    <img class="media-object" src="${ctx}/static/js/assets/layouts/layout/img/avatar10.jpg" alt="...">
                                     <div class="media-body">
                                         <h4 class="media-heading">Irina Savikova</h4>
                                         <div class="media-heading-sub"> CEO, Tizda Motors Inc </div>
@@ -631,7 +626,7 @@
                                     <div class="media-status">
                                         <span class="badge badge-danger">4</span>
                                     </div>
-                                    <img class="media-object" src="${ctx}/static/assets/layouts/layout/img/avatar11.jpg" alt="...">
+                                    <img class="media-object" src="${ctx}/static/js/assets/layouts/layout/img/avatar11.jpg" alt="...">
                                     <div class="media-body">
                                         <h4 class="media-heading">Maria Gomez</h4>
                                         <div class="media-heading-sub"> Manager, Infomatic Inc </div>
@@ -648,7 +643,7 @@
                                 </div>
                                 <div class="page-quick-sidebar-chat-user-messages">
                                     <div class="post out">
-                                        <img class="avatar" alt="" src="${ctx}/static/assets/layouts/layout/img/avatar3.jpg" />
+                                        <img class="avatar" alt="" src="${ctx}/static/js/assets/layouts/layout/img/avatar3.jpg" />
                                         <div class="message">
                                             <span class="arrow"></span>
                                             <a href="javascript:;" class="name">Bob Nilson</a>
@@ -657,7 +652,7 @@
                                         </div>
                                     </div>
                                     <div class="post in">
-                                        <img class="avatar" alt="" src="${ctx}/static/assets/layouts/layout/img/avatar2.jpg" />
+                                        <img class="avatar" alt="" src="${ctx}/static/js/assets/layouts/layout/img/avatar2.jpg" />
                                         <div class="message">
                                             <span class="arrow"></span>
                                             <a href="javascript:;" class="name">Ella Wong</a>
@@ -666,7 +661,7 @@
                                         </div>
                                     </div>
                                     <div class="post out">
-                                        <img class="avatar" alt="" src="${ctx}/static/assets/layouts/layout/img/avatar3.jpg" />
+                                        <img class="avatar" alt="" src="${ctx}/static/js/assets/layouts/layout/img/avatar3.jpg" />
                                         <div class="message">
                                             <span class="arrow"></span>
                                             <a href="javascript:;" class="name">Bob Nilson</a>
@@ -675,7 +670,7 @@
                                         </div>
                                     </div>
                                     <div class="post in">
-                                        <img class="avatar" alt="" src="${ctx}/static/assets/layouts/layout/img/avatar2.jpg" />
+                                        <img class="avatar" alt="" src="${ctx}/static/js/assets/layouts/layout/img/avatar2.jpg" />
                                         <div class="message">
                                             <span class="arrow"></span>
                                             <a href="javascript:;" class="name">Ella Wong</a>
@@ -684,7 +679,7 @@
                                         </div>
                                     </div>
                                     <div class="post out">
-                                        <img class="avatar" alt="" src="${ctx}/static/assets/layouts/layout/img/avatar3.jpg" />
+                                        <img class="avatar" alt="" src="${ctx}/static/js/assets/layouts/layout/img/avatar3.jpg" />
                                         <div class="message">
                                             <span class="arrow"></span>
                                             <a href="javascript:;" class="name">Bob Nilson</a>
@@ -693,7 +688,7 @@
                                         </div>
                                     </div>
                                     <div class="post in">
-                                        <img class="avatar" alt="" src="${ctx}/static/assets/layouts/layout/img/avatar2.jpg" />
+                                        <img class="avatar" alt="" src="${ctx}/static/js/assets/layouts/layout/img/avatar2.jpg" />
                                         <div class="message">
                                             <span class="arrow"></span>
                                             <a href="javascript:;" class="name">Ella Wong</a>
@@ -702,7 +697,7 @@
                                         </div>
                                     </div>
                                     <div class="post out">
-                                        <img class="avatar" alt="" src="${ctx}/static/assets/layouts/layout/img/avatar3.jpg" />
+                                        <img class="avatar" alt="" src="${ctx}/static/js/assets/layouts/layout/img/avatar3.jpg" />
                                         <div class="message">
                                             <span class="arrow"></span>
                                             <a href="javascript:;" class="name">Bob Nilson</a>
@@ -711,7 +706,7 @@
                                         </div>
                                     </div>
                                     <div class="post in">
-                                        <img class="avatar" alt="" src="${ctx}/static/assets/layouts/layout/img/avatar2.jpg" />
+                                        <img class="avatar" alt="" src="${ctx}/static/js/assets/layouts/layout/img/avatar2.jpg" />
                                         <div class="message">
                                             <span class="arrow"></span>
                                             <a href="javascript:;" class="name">Ella Wong</a>
@@ -720,7 +715,7 @@
                                         </div>
                                     </div>
                                     <div class="post out">
-                                        <img class="avatar" alt="" src="${ctx}/static/assets/layouts/layout/img/avatar3.jpg" />
+                                        <img class="avatar" alt="" src="${ctx}/static/js/assets/layouts/layout/img/avatar3.jpg" />
                                         <div class="message">
                                             <span class="arrow"></span>
                                             <a href="javascript:;" class="name">Bob Nilson</a>
@@ -1075,80 +1070,57 @@
 
 <!-- END QUICK NAV -->
 <!--[if lt IE 9]>
-<script src="${ctx}/static/assets/global/plugins/respond.min.js"></script>
-<script src="${ctx}/static/assets/global/plugins/excanvas.min.js"></script>
-<script src="${ctx}/static/assets/global/plugins/ie8.fix.min.js"></script>
+<script src="${ctx}/static/js/assets/global/plugins/respond.min.js"></script>
+<script src="${ctx}/static/js/assets/global/plugins/excanvas.min.js"></script>
+<script src="${ctx}/static/js/assets/global/plugins/ie8.fix.min.js"></script>
 <![endif]-->
 <!-- BEGIN CORE PLUGINS -->
 
-<script src="${ctx}/static/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="${ctx}/static/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
-<script src="${ctx}/static/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="${ctx}/static/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="${ctx}/static/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 
 
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
-<script src="${ctx}/static/assets/global/scripts/app.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/global/scripts/app.min.js" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
-<script src="${ctx}/static/assets/layouts/layout/scripts/layout.js" type="text/javascript"></script>
-<script src="${ctx}/static/assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
-<script src="${ctx}/static/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
-<script src="${ctx}/static/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/layouts/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
 
 <!-- 全屏遮罩 -->
-<link href="${ctx}/static/loading/holdon/HoldOn.min.css" rel="stylesheet">
-<script src="${ctx}/static/loading/holdon/HoldOn.min.js"></script>
+<link href="${ctx}/static/js/loading/holdon/HoldOn.min.css" rel="stylesheet">
+<script src="${ctx}/static/js/loading/holdon/HoldOn.min.js"></script>
 
 <!-- jquery遮罩 -->
-<script src="${ctx}/static/loading/jquery-loading-overlay-1.4.1/src/loadingoverlay.min.js"></script>
+<script src="${ctx}/static/js/loading/jquery-loading-overlay-1.4.1/src/loadingoverlay.min.js"></script>
+
+<!-- js模块管理 -->
+<script src="${ctx}/static/js/app/sea.js"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
 <script type="text/javascript">
-    function loadMainContent(url){
-        HoldOn.open();
-        //  $("#test").LoadingOverlay("show");
-        $("#maincontent").load(url,null,function(){
-            HoldOn.close();
-            //$("#test").LoadingOverlay("hide");
-        });
-    }
-    function activeMenu(currentDom){
-        var pDom = $(currentDom).parent();
-        if (pDom && pDom.hasClass("page-sidebar-menu")) {
-            $(currentDom).addClass("active");
-            //无孩子节点
-            if (!currentDom.hasClass("open")) {
-                $("#menu > li.open").children('a').children('.arrow').removeClass('open');
-                $("#menu > li.open").children('.sub-menu:not(.always-open)').slideUp(200);
-                $("#menu > li.open").removeClass('open');
-            }
-        } else {
-            activeMenu(pDom);
-        }
-    }
-    $(document).ready(function(){
-        $.LoadingOverlaySetup({
-            color:"rgba(0, 0, 0, 0.4)"
-        });
-
-        $("a[class=nav-link]").click(function(event){
-            event.preventDefault();
-            var loadUrl = $(this).attr('href');
-            if (loadUrl && loadUrl.length > 0) {
-                $("#menu > li.active").removeClass("active");
-                activeMenu(this);
-                loadMainContent($(this).attr('href'));
-            }
-        });
-
-        loadMainContent("${ctx}/index");
+    //设置jquery遮罩背景透明度
+    $.LoadingOverlaySetup({
+        color:"rgba(0, 0, 0, 0.4)"
+    });
+    //全局变量
+    var basePath = "${ctx}/";
+    seajs.config({
+        // 文件编码
+        charset: 'utf-8'
+    });
+    seajs.use("layout/main",function(layout){
+        layout.init();
     });
 </script>
 </body>
