@@ -437,7 +437,7 @@
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
                 <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" >
+                <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" id="menu">
                     <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
                     <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
                     <li class="sidebar-toggler-wrapper hide">
@@ -447,6 +447,13 @@
                     </li>
                     <!-- END SIDEBAR TOGGLER BUTTON -->
                     <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                    <li class="nav-item active" >
+                        <a href="${ctx}/index" class="nav-link">
+                            <i class="icon-home"></i>
+                            <span class="title">Dashboard</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
                     ${menus}
                 </ul>
                 <!-- END SIDEBAR MENU -->
@@ -467,7 +474,7 @@
                 <div class="page-bar">
                     <ul class="page-breadcrumb">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="index">Home</a>
                             <i class="fa fa-circle"></i>
                         </li>
                         <li>
@@ -476,7 +483,8 @@
                     </ul>
 
                 </div>
-                <sitemesh:write property='body' />
+
+                <div class="row" id="maincontent"></div>
                 <!-- END PAGE BAR -->
                 <!-- BEGIN PAGE TITLE-->
 
@@ -1090,11 +1098,59 @@
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
-<script src="${ctx}/static/assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/assets/layouts/layout/scripts/layout.js" type="text/javascript"></script>
 <script src="${ctx}/static/assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
 <script src="${ctx}/static/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
 <script src="${ctx}/static/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+
+<!-- 全屏遮罩 -->
+<link href="${ctx}/static/loading/holdon/HoldOn.min.css" rel="stylesheet">
+<script src="${ctx}/static/loading/holdon/HoldOn.min.js"></script>
+
+<!-- jquery遮罩 -->
+<script src="${ctx}/static/loading/jquery-loading-overlay-1.4.1/src/loadingoverlay.min.js"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
+<script type="text/javascript">
+    function loadMainContent(url){
+        HoldOn.open();
+        //  $("#test").LoadingOverlay("show");
+        $("#maincontent").load(url,null,function(){
+            HoldOn.close();
+            //$("#test").LoadingOverlay("hide");
+        });
+    }
+    function activeMenu(currentDom){
+        var pDom = $(currentDom).parent();
+        if (pDom && pDom.hasClass("page-sidebar-menu")) {
+            $(currentDom).addClass("active");
+            //无孩子节点
+            if (!currentDom.hasClass("open")) {
+                $("#menu > li.open").children('a').children('.arrow').removeClass('open');
+                $("#menu > li.open").children('.sub-menu:not(.always-open)').slideUp(200);
+                $("#menu > li.open").removeClass('open');
+            }
+        } else {
+            activeMenu(pDom);
+        }
+    }
+    $(document).ready(function(){
+        $.LoadingOverlaySetup({
+            color:"rgba(0, 0, 0, 0.4)"
+        });
+
+        $("a[class=nav-link]").click(function(event){
+            event.preventDefault();
+            var loadUrl = $(this).attr('href');
+            if (loadUrl && loadUrl.length > 0) {
+                $("#menu > li.active").removeClass("active");
+                activeMenu(this);
+                loadMainContent($(this).attr('href'));
+            }
+        });
+
+        loadMainContent("${ctx}/index");
+    });
+</script>
 </body>
 
 </html>

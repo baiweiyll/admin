@@ -27,15 +27,20 @@ public class MenuTree implements Serializable{
         for (MenuDto menu:menus) {
             //根节点判断
             if (StringUtils.isBlank(menu.getParentId())) {
+                //无孩子节点
+
                 html.append("<li class=\"nav-item\">");
                 if (StringUtils.isNotBlank(menu.getHref())) {
-                    html.append("<a href=\""+menu.getHref()+"\" class=\"nav-link nav-toggle\">");
+                    html.append("<a href='"+menu.getHref()+"' class='nav-link"+(StringUtils.isBlank(menu.getChidId())?"":" nav-toggle")+"'>");
                 } else {
-                    html.append("<a href=\"javascript:;\" class=\"nav-link nav-toggle\">");
+                    html.append("<a class='nav-link"+(StringUtils.isBlank(menu.getChidId())?"":" nav-toggle")+"'>");
                 }
                 html.append("<i class=\""+menu.getIcon()+"\"></i>");
                 html.append("<span class=\"title\"> "+menu.getName()+"</span>");
-                html.append(" <span class=\"arrow \"></span>");
+
+                if (!StringUtils.isBlank(menu.getChidId())){
+                    html.append(" <span class=\"arrow \"></span>");
+                }
                 html.append("</a>");
                 build(menu);
                 html.append("</li>");

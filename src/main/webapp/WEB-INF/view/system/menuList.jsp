@@ -46,6 +46,6 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#treeTable").treetable({ expandable: true });
+        $("#treeTable").treetable({ initialState:"expanded",expandable: true});
     });
 </script>
