@@ -51,7 +51,7 @@ define(function(require, exports, module) {
                 var menuName = $(menu).children('a').children('span.title').text();
                 pageBarHtml = pageBarHtml + '<li><span>' + menuName + '</span>';
                 if (i) {
-                    pageBarHtml = pageBarHtml + '<i class="fa fa-circle"></i>';
+                    pageBarHtml = pageBarHtml + '<i class="fa  fa-long-arrow-right"></i>';
                 }
                 pageBarHtml = pageBarHtml + '</li>';
             }
