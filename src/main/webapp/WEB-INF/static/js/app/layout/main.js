@@ -9,13 +9,26 @@ define(function(require, exports, module) {
      * 框架中间板块内容加载
      * @param url
      */
-    function loadMainContent(url){
-        HoldOn.open();
-        //  $("#test").LoadingOverlay("show");
-        $("#maincontent").load(basePath + url,null,function(){
-            HoldOn.close();
-            //$("#test").LoadingOverlay("hide");
-        });
+    function loadMainContent(current){
+        var loadUrl = $(current).attr('href');
+        var menuId = $(current).attr('id');
+        if (!check.isNull(loadUrl)) {
+            HoldOn.open();
+            //  $("#test").LoadingOverlay("show");
+            $("#maincontent").load(basePath + loadUrl,null,function(response,status,xhr){
+                HoldOn.close();
+                if ("success" == status) {
+                    //修改pageBar内容
+                    updatePagebar(current);
+
+                    $("#menu > li.active").removeClass("active");
+                    activeMenu(current);
+                    $("#currentMenuId").val(menuId);
+                }
+                //$("#test").LoadingOverlay("hide");
+            });
+
+        }
     }
 
     /**
@@ -65,22 +78,19 @@ define(function(require, exports, module) {
     function bindEvent(){
         $("a[class=nav-link]").click(function(event){
             event.preventDefault();
-            var loadUrl = $(this).attr('href');
-            if (!check.isNull(loadUrl)) {
-                //修改pageBar内容
-                updatePagebar(this);
+            loadMainContent(this);
 
-                $("#menu > li.active").removeClass("active");
-                activeMenu(this);
-                loadMainContent(loadUrl);
-            }
         });
     }
     module.exports = {
+        refresh:function(){
+            var currentMenuId = $('#currentMenuId').val();
+            $('#'+currentMenuId).trigger('click');
+        },
         init:function(){
             bindEvent();
             //加载首页
-            loadMainContent("index");
+            loadMainContent($("#index"));
         }
     }
 

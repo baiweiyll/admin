@@ -32,9 +32,9 @@
     <link href="${ctx}/static/js/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-
-
-
+    <!-- 弹窗-->
+    <link href="${ctx}/static/js/assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+    <link href="${ctx}/static/js/assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="${ctx}/static/js/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
@@ -47,6 +47,12 @@
     <link href="${ctx}/static/js/assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="${ctx}/static/js/favicon.ico" />
+    <!-- 全局css 改变按钮的颜色-->
+    <style>
+        a{
+            color:#888;
+        }
+    </style>
     <script src="${ctx}/static/js/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 </head>
 <!-- END HEAD -->
@@ -448,7 +454,7 @@
                     <!-- END SIDEBAR TOGGLER BUTTON -->
                     <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
                     <li class="nav-item active" >
-                        <a href="index" class="nav-link">
+                        <a href="index" class="nav-link" id="index">
                             <i class="icon-home"></i>
                             <span class="title">Dashboard</span>
                             <span class="selected"></span>
@@ -479,6 +485,7 @@
                     </ul>
                 </div>
 
+                <input type="hidden" id="currentMenuId"/>
                 <div class="row" id="maincontent"></div>
                 <!-- END PAGE BAR -->
                 <!-- BEGIN PAGE TITLE-->
@@ -1065,6 +1072,8 @@
         </div>
     </div>
     <!-- END FOOTER -->
+    <!-- 系统modal-->
+    <div id="ajax-modal" class="modal  fade" data-backdrop="static" data-keyboard="false"></div>
 </div>
 <!-- BEGIN QUICK NAV -->
 
@@ -1083,15 +1092,14 @@
 <script src="${ctx}/static/js/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-
-
+<!-- 弹窗-->
+<script src="${ctx}/static/js/assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/assets/pages/scripts/ui-extended-modals.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="${ctx}/static/js/assets/global/scripts/app.min.js" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
-<!-- BEGIN PAGE LEVEL SCRIPTS -->
-
-<!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${ctx}/static/js/assets/layouts/layout/scripts/layout.js" type="text/javascript"></script>
 <script src="${ctx}/static/js/assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
@@ -1123,6 +1131,7 @@
         layout.init();
     });
 </script>
+
 </body>
 
 </html>

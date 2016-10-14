@@ -14,20 +14,35 @@
         </div>
     </div>
     <div class="portlet-body">
+        <div>
+            <a href="javascript:;" class="btn " id="addMenu">
+                <i class="fa fa-plus"></i>
+                新建菜单
+            </a>
+        </div>
         <div class="table-responsive">
             <table id="treeTable" class="table table-striped table-bordered table-hover treetable">
                 <thead>
-                <tr>
-                    <th>名称</th>
-                    <th>链接</th>
-                    <th>排序</th>
-                    <th>target</th>
-                    <th>权限</th>
-                    <th>创建人</th>
-                    <th>创建时间</th>
-                    <th>修改人</th>
-                    <th>修改时间</th>
-                </tr>
+                    <tr>
+                        <th>
+                            <div class="task-status">
+                                <a  style='text-decoration:none;' href="javascript:;" id="expanded">
+                                    <li class="fa fa-plus-square"></li>
+                                </a>
+                                <a style='text-decoration:none;' href="javascript:;" id="collapsed">
+                                    <li class="fa fa-minus-square"></li>
+                                </a>
+                            </div>
+                        </th>
+                        <th>链接</th>
+                        <th>排序</th>
+                        <th>权限</th>
+                        <th>创建人</th>
+                        <th>创建时间</th>
+                        <th>修改人</th>
+                        <th>修改时间</th>
+                        <th>操作</th>
+                    </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${menus}" var="menu">
@@ -45,9 +60,6 @@
                                 ${menu.sort}
                         </td>
                         <td>
-                                ${menu.target}
-                        </td>
-                        <td>
                                 ${menu.permission}
                         </td>
                         <td>
@@ -62,7 +74,9 @@
                         <td>
                             <fmt:formatDate value="${menu.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
                         </td>
+                        <td>
 
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

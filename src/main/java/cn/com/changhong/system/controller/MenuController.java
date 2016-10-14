@@ -38,4 +38,9 @@ public class MenuController {
         return "system/menuList";
     }
 
+    @RequestMapping(value = "addMenu",method = RequestMethod.GET)
+    public String addMenu(){
+        return "system/addMenu";
+    }
+
 }

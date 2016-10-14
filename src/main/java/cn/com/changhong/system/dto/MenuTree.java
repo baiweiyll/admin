@@ -29,17 +29,17 @@ public class MenuTree implements Serializable{
             if (StringUtils.isBlank(menu.getParentId())) {
                 //无孩子节点
 
-                html.append("<li class=\"nav-item\">");
+                html.append("<li class='nav-item'>");
                 if (StringUtils.isNotBlank(menu.getHref())) {
-                    html.append("<a href='"+menu.getHref()+"' class='nav-link"+(StringUtils.isBlank(menu.getChidId())?"":" nav-toggle")+"'>");
+                    html.append("<a id='"+menu.getId()+"' href='"+menu.getHref()+"' class='nav-link"+(StringUtils.isBlank(menu.getChidId())?"":" nav-toggle")+"'>");
                 } else {
-                    html.append("<a class='nav-link"+(StringUtils.isBlank(menu.getChidId())?"":" nav-toggle")+"'>");
+                    html.append("<a id='"+menu.getId()+"' class='nav-link"+(StringUtils.isBlank(menu.getChidId())?"":" nav-toggle")+"'>");
                 }
-                html.append("<i class=\""+menu.getIcon()+"\"></i>");
-                html.append("<span class=\"title\"> "+menu.getName()+"</span>");
+                html.append("<i class='"+menu.getIcon()+"'></i>");
+                html.append("<span class='title'> "+menu.getName()+"</span>");
 
                 if (!StringUtils.isBlank(menu.getChidId())){
-                    html.append(" <span class=\"arrow \"></span>");
+                    html.append(" <span class='arrow '></span>");
                 }
                 html.append("</a>");
                 build(menu);
@@ -52,29 +52,29 @@ public class MenuTree implements Serializable{
     public void build(MenuDto menu) {
         List<MenuDto> children = getChildren(menu);
         if (!children.isEmpty()) {
-            html.append("<ul class=\"sub-menu\">");
+            html.append("<ul class='sub-menu'>");
             for (MenuDto child : children) {
                 if (StringUtils.isNotBlank(child.getChidId())) {
-                    html.append("<li class=\"nav-item\">");
+                    html.append("<li class='nav-item'>");
                     if (StringUtils.isNotBlank(child.getHref())) {
-                        html.append("<a href=\""+child.getHref()+"\" class=\"nav-link nav-toggle\">");
+                        html.append("<a id='"+child.getId()+"' href='"+child.getHref()+"' class='nav-link nav-toggle'>");
                     } else {
-                        html.append("<a href=\"javascript:;\" class=\"nav-link nav-toggle\">");
+                        html.append("<a id='"+child.getId()+"' href='javascript:;' class='nav-link nav-toggle'>");
                     }
-                    html.append("<i class=\""+child.getIcon()+"\"></i>");
-                    html.append("<span class=\"title\"> "+child.getName()+"</span>");
-                    html.append(" <span class=\"arrow \"></span>");
+                    html.append("<i class='"+child.getIcon()+"'></i>");
+                    html.append("<span class='title'> "+child.getName()+"</span>");
+                    html.append(" <span class='arrow '></span>");
                     html.append("</a>");
                     build(child);
                 } else {
-                    html.append("<li class=\"nav-item\">");
+                    html.append("<li class='nav-item'>");
                     if (StringUtils.isNotBlank(child.getHref())) {
-                        html.append("<a href=\""+child.getHref()+"\" class=\"nav-link\">");
+                        html.append("<a id='"+child.getId()+"' href='"+child.getHref()+"' class='nav-link'>");
                     } else {
-                        html.append("<a href=\"javascript:;\" class=\"nav-link\">");
+                        html.append("<a id='"+child.getId()+"' href='javascript:;' class='nav-link'>");
                     }
-                    html.append("<i class=\""+child.getIcon()+"\"></i>");
-                    html.append("<span class=\"title\"> "+child.getName()+"</span>");
+                    html.append("<i class='"+child.getIcon()+"'></i>");
+                    html.append("<span class='title'> "+child.getName()+"</span>");
                     html.append("</a>");
                     html.append("</li>");
                 }
