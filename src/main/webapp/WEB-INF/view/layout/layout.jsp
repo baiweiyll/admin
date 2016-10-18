@@ -1096,6 +1096,10 @@
 <script src="${ctx}/static/js/assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
 <script src="${ctx}/static/js/assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
 <script src="${ctx}/static/js/assets/pages/scripts/ui-extended-modals.min.js" type="text/javascript"></script>
+<!-- 验证-->
+<script src="${ctx}/static/js/assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+<%--<script src="${ctx}/static/js/assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>--%>
+<script src="${ctx}/static/js/assets/global/plugins/jquery-validation/js/localization/messages_zh.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="${ctx}/static/js/assets/global/scripts/app.min.js" type="text/javascript"></script>

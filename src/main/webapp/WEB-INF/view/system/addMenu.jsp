@@ -11,6 +11,28 @@
     <h3>添加菜单</h3>
 </div>
 <div class="modal-body">
+    <form class="form-horizontal" role="form" id="addMenuForm">
+        <div class="form-body">
+            <div class="form-group">
+                <label class="col-md-3 control-label">菜单名称<span class="required" aria-required="true"> * </span></label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="menuName" name="menuName" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">菜单链接</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" placeholder="请输入相对路径" id="menuUrl" name="menuUrl">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">菜单权限</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="menuP">
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 <div class="modal-footer">
     <a href="javascript:;" class="btn " id="addMenuOk">
@@ -22,3 +44,9 @@
         取消
     </a>
 </div>
+
+<script type="text/javascript">
+    seajs.use("system/menu/addMenu",function(addMenu){
+        addMenu.init();
+    });
+</script>
