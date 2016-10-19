@@ -9,7 +9,7 @@ define(function(require, exports, module) {
      * 框架中间板块内容加载
      * @param url
      */
-    function loadMainContent(current){
+    function loadMainContent(current,callback){
         var loadUrl = $(current).attr('href');
         var menuId = $(current).attr('id');
         if (!check.isNull(loadUrl)) {
@@ -25,6 +25,7 @@ define(function(require, exports, module) {
                     activeMenu(current);
                     $("#currentMenuId").val(menuId);
                 }
+                (callback && typeof(callback) === "function") && callback();
                 //$("#test").LoadingOverlay("hide");
             });
 
@@ -83,9 +84,10 @@ define(function(require, exports, module) {
         });
     }
     module.exports = {
-        refresh:function(){
+        refresh:function(callback){
             var currentMenuId = $('#currentMenuId').val();
-            $('#'+currentMenuId).trigger('click');
+           // $('#'+currentMenuId).trigger('click');
+            loadMainContent($('#'+currentMenuId),callback);
         },
         init:function(){
             bindEvent();

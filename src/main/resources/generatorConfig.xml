@@ -40,7 +40,7 @@
 
 
 		<table tableName="sys_menu" domainObjectName="Menu" enableSelectByExample="true">
-			<generatedKey column="id" sqlStatement="select SEQ_ID.nextval from dual" identity="true" />
+			<generatedKey column="id" sqlStatement="mysql" identity="true" />
 
 		</table>
 

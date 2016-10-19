@@ -9,7 +9,7 @@ public class Menu {
      * 编号
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "UUID")
     private String id;
 
     /**

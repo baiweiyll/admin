@@ -14,21 +14,39 @@
     <form class="form-horizontal" role="form" id="addMenuForm">
         <div class="form-body">
             <div class="form-group">
+                <label class="col-md-3 control-label">父级菜单<span class="required" aria-required="true"> * </span></label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="parentId" name="parentId">
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="col-md-3 control-label">菜单名称<span class="required" aria-required="true"> * </span></label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="menuName" name="menuName" required>
+                    <input type="text" class="form-control" id="name" name="name" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-3 control-label">菜单链接</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" placeholder="请输入相对路径" id="menuUrl" name="menuUrl">
+                    <input type="text" class="form-control" placeholder="请输入相对路径" id="href" name="href">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-3 control-label">菜单权限</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="menuP">
+                    <input type="text" class="form-control" id="permission" name="permission">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">菜单排序<span class="required" aria-required="true"> * </span></label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="sort" name="sort">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">菜单图标</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="icon" name="icon">
                 </div>
             </div>
         </div>
@@ -39,7 +57,7 @@
         <i class="fa fa-check"></i>
         确定
     </a>
-    <a href="javascript:;" class="btn " id="addMenuCancel">
+    <a href="javascript:;" class="btn "  data-toggle="modal" data-target="#ajax-modal">
         <i class="fa fa-times"></i>
         取消
     </a>

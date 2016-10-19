@@ -3,8 +3,6 @@
  */
 define(function(require, exports, module) {
 
-    var layout = require("layout/main");
-
     function initTreeTable(){
         //collapsed expanded
         $("#treeTable").treetable({ initialState:"collapsed",expandable: true});
@@ -21,13 +19,18 @@ define(function(require, exports, module) {
         //新建菜单事件
         $("#addMenu").click(function(){
             var $modal = $('#ajax-modal');
-            $modal.load('http://localhost:8888/admin/sys/addMenu', null, function(){
+            $modal.load('http://localhost:8888/admin/sys/addMenuView', null, function(){
                 $modal.modal();
             });
             //layout.refresh();
         });
     }
     module.exports = {
+        expandNode:function(nodeId) {
+            if (nodeId) {
+                $("#treeTable").treetable("expandNode",nodeId);
+            }
+        },
         init:function(){
             initTreeTable();
             bindEvent();

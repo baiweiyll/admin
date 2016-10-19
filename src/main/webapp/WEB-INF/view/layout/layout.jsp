@@ -1134,6 +1134,25 @@
     seajs.use("layout/main",function(layout){
         layout.init();
     });
+
+    //jquery 全局验证
+    $.validator.setDefaults( {
+        errorElement: 'span', //default input error message container
+        errorClass: 'help-block help-block-error', // default input error message class
+        highlight: function(element) { // hightlight error inputs
+            $(element)
+                    .closest("div[class^='col']").addClass('has-error').removeClass( "has-success" );; // set error class to the control group
+        },
+
+        unhighlight: function(element) { // revert the change done by hightlight
+            $(element)
+                    .closest("div[class^='col']").addClass( "has-success" ).removeClass('has-error'); // set error class to the control group
+        },
+        success: function(label) {
+            label
+                    .closest("div[class^='col']").removeClass('has-error'); // set success class to the control group
+        }
+    } );
 </script>
 
 </body>

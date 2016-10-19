@@ -2,13 +2,17 @@ package cn.com.changhong.system.controller;
 
 import cn.com.changhong.system.model.Menu;
 import cn.com.changhong.system.service.MenuService;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,9 +42,17 @@ public class MenuController {
         return "system/menuList";
     }
 
-    @RequestMapping(value = "addMenu",method = RequestMethod.GET)
-    public String addMenu(){
+    @RequestMapping(value = "addMenuView",method = RequestMethod.GET)
+    public String addMenuView(){
         return "system/addMenu";
+    }
+
+    @RequestMapping(value = "addMenu",method = RequestMethod.POST)
+    public @ResponseBody JSONObject addMenu(Menu menu){
+        menu.setCreateBy("admin");
+        menu.setCreateDate(new Date());
+        menuService.insert(menu);
+        return new JSONObject();
     }
 
 }
