@@ -75,7 +75,15 @@
                             <fmt:formatDate value="${menu.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
                         </td>
                         <td>
-
+                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;" data="${menu.id}" menuName="${menu.name}" id="addChildMenu-${menu.id}">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;" data="${menu.id}" menuName="${menu.name}" id="editMenu-${menu.id}">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </a>
+                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;" data="${menu.id}" menuName="${menu.name}" id="delMenu-${menu.id}">
+                                <i class="fa fa-times"></i>
+                            </a>
                         </td>
                     </tr>
                 </c:forEach>

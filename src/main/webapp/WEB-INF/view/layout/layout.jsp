@@ -32,6 +32,12 @@
     <link href="${ctx}/static/js/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <!-- 通知-->
+    <link href="${ctx}/static/js/assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- alert-->
+    <link href="${ctx}/static/js/assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
+
     <!-- 弹窗-->
     <link href="${ctx}/static/js/assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
     <link href="${ctx}/static/js/assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
@@ -51,6 +57,9 @@
     <style>
         a{
             color:#888;
+        }
+        table{
+            text-align:center;
         }
     </style>
     <script src="${ctx}/static/js/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
@@ -1092,10 +1101,17 @@
 <script src="${ctx}/static/js/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
+<!-- 通知-->
+<script src="${ctx}/static/js/assets/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- alert-->
+<script src="${ctx}/static/js/assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js" type="text/javascript"></script>
+
 <!-- 弹窗-->
 <script src="${ctx}/static/js/assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
 <script src="${ctx}/static/js/assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
 <script src="${ctx}/static/js/assets/pages/scripts/ui-extended-modals.min.js" type="text/javascript"></script>
+
 <!-- 验证-->
 <script src="${ctx}/static/js/assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 <%--<script src="${ctx}/static/js/assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>--%>
@@ -1131,9 +1147,12 @@
         // 文件编码
         charset: 'utf-8'
     });
-    seajs.use("layout/main",function(layout){
-        layout.init();
-    });
+
+    //系统通知，全局设置
+    toastr.options.newestOnTop = false;
+    toastr.options.positionClass='toast-bottom-right';
+    toastr.options.progressBar = true;
+    toastr.options.closeButton = true;
 
     //jquery 全局验证
     $.validator.setDefaults( {
@@ -1153,6 +1172,10 @@
                     .closest("div[class^='col']").removeClass('has-error'); // set success class to the control group
         }
     } );
+
+    seajs.use("layout/main",function(layout){
+        layout.init();
+    });
 </script>
 
 </body>

@@ -41,4 +41,10 @@ public interface BaseService<T>
     public int selectCount(T record);
     
     public int selectCountByExample(Object example);
+
+    public int deleteByPrimaryKey(Object key);
+
+    public int delete(T record);
+
+    public int deleteByExample(Object example);
 }

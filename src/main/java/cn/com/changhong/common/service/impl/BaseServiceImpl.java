@@ -82,6 +82,17 @@ public abstract class BaseServiceImpl<T>  implements BaseService<T> {
     public int selectCountByExample(Object example){
     	return mapper.selectCountByExample(example);
     }
-    
+
+    public int deleteByExample(Object example){
+        return mapper.deleteByExample(example);
+    }
+
+    public int delete(T record){
+        return mapper.delete(record);
+    }
+
+    public int deleteByPrimaryKey(Object key){
+        return mapper.deleteByPrimaryKey(key);
+    }
     
 }

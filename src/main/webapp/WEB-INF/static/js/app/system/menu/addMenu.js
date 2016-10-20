@@ -8,12 +8,16 @@ define(function(require, exports, module){
     function addMenu(){
       if($("#addMenuForm").valid()){
           var data = $('#addMenuForm').serialize();
+          HoldOn.open();
           $.ajax({
               url:basePath + "sys/addMenu",
               type:"POST",
              // contentType: "application/json",
              // dataType:"json",
               data:data,
+              complete:function(){
+                  HoldOn.close();
+              },
               success:function(){
                   //关闭窗口
                   $('#ajax-modal').modal('hide');

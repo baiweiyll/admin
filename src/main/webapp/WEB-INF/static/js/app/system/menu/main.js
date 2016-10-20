@@ -3,6 +3,9 @@
  */
 define(function(require, exports, module) {
 
+    var layout = require("layout/main");
+    var dialog = require("util/dialogUtil");
+
     function initTreeTable(){
         //collapsed expanded
         $("#treeTable").treetable({ initialState:"collapsed",expandable: true});
@@ -22,8 +25,58 @@ define(function(require, exports, module) {
             $modal.load('http://localhost:8888/admin/sys/addMenuView', null, function(){
                 $modal.modal();
             });
-            //layout.refresh();
         });
+
+        //添加子菜单事件
+        $("a[id^='addChildMenu']").click(function(){
+            alert($(this).attr("data"));
+            var $modal = $('#ajax-modal');
+            $modal.load('http://localhost:8888/admin/sys/addMenuView', null, function(){
+                $modal.modal();
+            });
+        });
+
+        //编辑菜单事件
+        $("a[id^='editMenu']").click(function(){
+            alert($(this).attr("data"));
+            var $modal = $('#ajax-modal');
+            $modal.load('http://localhost:8888/admin/sys/addMenuView', null, function(){
+                $modal.modal();
+            });
+        });
+
+        $("a[id^='delMenu']").click(function(){
+            if(!$(this).closest("tr").hasClass("leaf")){
+                toastr.error("删除失败！","请先删除子菜单");
+                return;
+            }
+            var menuId = $(this).attr("data");
+            var menuName = $(this).attr("menuName");
+            dialog.showWarningConfirm("确定要删除菜单吗?","请确保被删除菜单["+menuName+"]无孩子节点!",function(){
+                //关闭弹窗
+                swal.close();
+                $("#maincontent").LoadingOverlay("show");
+                $.ajax({
+                    url:basePath + "sys/delMenu",
+                    type:"GET",
+                    data:"menuId="+menuId,
+                    complete:function(){
+                        $("#maincontent").LoadingOverlay("hide");
+                    },
+                    success:function(){
+                        //刷新父页面
+                        layout.refresh(function(){
+                            toastr.success('删除菜单['+menuName+']成功');
+                            //展开对应节点
+                            //menuList.expandNode($("#parentId").val());
+                        });
+
+                    }
+                });
+            })
+
+        });
+
     }
     module.exports = {
         expandNode:function(nodeId) {
@@ -32,8 +85,10 @@ define(function(require, exports, module) {
             }
         },
         init:function(){
-            initTreeTable();
-            bindEvent();
+            $(document).ready(function(){
+                initTreeTable();
+                bindEvent();
+            });
         }
     }
 });
