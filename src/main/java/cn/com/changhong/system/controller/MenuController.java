@@ -1,7 +1,9 @@
 package cn.com.changhong.system.controller;
 
+import cn.com.changhong.system.dto.JsTree;
 import cn.com.changhong.system.model.Menu;
 import cn.com.changhong.system.service.MenuService;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,6 +41,11 @@ public class MenuController {
         return "system/menuList";
     }
 
+    @RequestMapping(value = "menu/tree",method = RequestMethod.GET)
+    public String menuTree(Model model){
+        return "system/menuTree";
+    }
+
     @RequestMapping(value = "addMenuView",method = RequestMethod.GET)
     public String addMenuView(){
         return "system/addMenu";
@@ -54,8 +61,21 @@ public class MenuController {
 
     @RequestMapping(value = "delMenu",method = RequestMethod.GET)
     public @ResponseBody JSONObject delMenu(@RequestParam(name="menuId") String menuId){
+        Menu condition = new Menu();
+        condition.setParentId(menuId);
+        JSONObject json = new JSONObject();
+        int count = menuService.selectCount(condition);
+        if (count > 0) {
+            json.put("errorMsg","请先删除子菜单");
+            return json;
+        }
         menuService.deleteByPrimaryKey(menuId);
-        return new JSONObject();
+        return json;
+    }
+
+    @RequestMapping(value = "jstree",method = RequestMethod.GET)
+    public @ResponseBody  List<JsTree> getJsTree(){
+        return menuService.getJsTree();
     }
 
 }

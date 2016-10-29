@@ -32,7 +32,11 @@
     <link href="${ctx}/static/js/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <!-- 通知-->
+
+    <!-- 下拉 -->
+    <link href="${ctx}/static/js/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- 通知 -->
     <link href="${ctx}/static/js/assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
 
     <!-- alert-->
@@ -1101,7 +1105,10 @@
 <script src="${ctx}/static/js/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<!-- 通知-->
+<!-- 下拉 -->
+<script src="${ctx}/static/js/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+
+<!-- 通知 -->
 <script src="${ctx}/static/js/assets/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
 
 <!-- alert-->

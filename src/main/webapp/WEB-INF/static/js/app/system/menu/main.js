@@ -47,7 +47,7 @@ define(function(require, exports, module) {
 
         $("a[id^='delMenu']").click(function(){
             if(!$(this).closest("tr").hasClass("leaf")){
-                toastr.error("删除失败！","请先删除子菜单");
+                toastr.error("请先删除子菜单");
                 return;
             }
             var menuId = $(this).attr("data");
@@ -63,7 +63,11 @@ define(function(require, exports, module) {
                     complete:function(){
                         $("#maincontent").LoadingOverlay("hide");
                     },
-                    success:function(){
+                    success:function(data){
+                        if (data && data.errorMsg) {
+                            toastr.error(data.errorMsg);
+                            return;
+                        }
                         //刷新父页面
                         layout.refresh(function(){
                             toastr.success('删除菜单['+menuName+']成功');

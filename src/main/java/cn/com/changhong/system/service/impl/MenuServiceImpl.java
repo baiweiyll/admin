@@ -2,6 +2,7 @@ package cn.com.changhong.system.service.impl;
 
 import cn.com.changhong.common.Constants;
 import cn.com.changhong.common.service.impl.BaseServiceImpl;
+import cn.com.changhong.system.dto.JsTree;
 import cn.com.changhong.system.dto.MenuDto;
 import cn.com.changhong.system.dto.MenuTree;
 import cn.com.changhong.system.mapper.MenuMapper;
@@ -40,10 +41,22 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu> implements MenuServic
     public List<Menu> getTreeTable() {
         Example example = new Example(Menu.class);
         example.orderBy("sort").asc();
-        List<Menu> menus = menuMapper.selectByExample(example);
+        List<Menu> menus = super.selectByExample(example);
         List<Menu> list = new ArrayList<>();
         MenuUtil.sortTreeTable(list,menus, Constants.TREE_ROOT_ID);
         return list;
+    }
+
+    @Override
+    public List<JsTree> getJsTree() {
+        Example example = new Example(Menu.class);
+        example.orderBy("sort").desc();
+        List<Menu> list = super.selectByExample(example);
+        List<JsTree> result = new ArrayList<JsTree>();
+        for (Menu menu:list) {
+            result.add(new JsTree(menu));
+        }
+        return result;
     }
 
 }
