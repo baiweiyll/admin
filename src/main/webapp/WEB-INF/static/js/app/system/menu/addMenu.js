@@ -52,6 +52,12 @@ define(function(require, exports, module){
         $("#addMenuOk").click(function(){
             addMenu();
         });
+        $("#parentId").click(function(){
+            var $modal = $('#menuTree-modal');
+            $modal.load(basePath + 'sys/menu/tree', null, function(){
+                $modal.modal();
+            });
+        });
     }
 
     module.exports = {

@@ -21,8 +21,8 @@ define(function(require, exports, module) {
         });
         //新建菜单事件
         $("#addMenu").click(function(){
-            var $modal = $('#ajax-modal');
-            $modal.load('http://localhost:8888/admin/sys/addMenuView', null, function(){
+            var $modal = $('#addMenu-modal');
+            $modal.load(basePath + 'sys/addMenuView', null, function(){
                 $modal.modal();
             });
         });
@@ -30,8 +30,8 @@ define(function(require, exports, module) {
         //添加子菜单事件
         $("a[id^='addChildMenu']").click(function(){
             alert($(this).attr("data"));
-            var $modal = $('#ajax-modal');
-            $modal.load('http://localhost:8888/admin/sys/addMenuView', null, function(){
+            var $modal = $('#addMenu-modal');
+            $modal.load(basePath + 'sys/addMenuView', null, function(){
                 $modal.modal();
             });
         });
@@ -39,8 +39,8 @@ define(function(require, exports, module) {
         //编辑菜单事件
         $("a[id^='editMenu']").click(function(){
             alert($(this).attr("data"));
-            var $modal = $('#ajax-modal');
-            $modal.load('http://localhost:8888/admin/sys/addMenuView', null, function(){
+            var $modal = $('#addMenu-modal');
+            $modal.load(basePath + 'sys/addMenuView', null, function(){
                 $modal.modal();
             });
         });

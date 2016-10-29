@@ -11,6 +11,7 @@
     <h3>添加菜单</h3>
 </div>
 <div class="modal-body">
+    <div id="menuTree-modal" class="modal  fade" data-backdrop="static" data-keyboard="false"></div>
     <form class="form-horizontal" role="form" id="addMenuForm">
         <div class="form-body">
             <div class="form-group">

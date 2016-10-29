@@ -1085,8 +1085,6 @@
         </div>
     </div>
     <!-- END FOOTER -->
-    <!-- 系统modal-->
-    <div id="ajax-modal" class="modal  fade" data-backdrop="static" data-keyboard="false"></div>
 </div>
 <!-- BEGIN QUICK NAV -->
 

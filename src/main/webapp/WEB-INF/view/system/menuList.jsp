@@ -5,6 +5,8 @@
 <link href="${ctx}/static/js/treetable/css/jquery.treetable.theme.default.css" rel="stylesheet" type="text/css" />
 <script src="${ctx}/static/js/treetable/jquery.treetable.js" type="text/javascript"></script>
 <div class="portlet box red-sunglo">
+    <!-- add menu modal-->
+    <div id="addMenu-modal" class="modal  fade" data-backdrop="static" data-keyboard="false"></div>
     <div class="portlet-title">
         <div class="caption">
             <i class="icon-grid"></i> 系统菜单
