@@ -42,7 +42,8 @@ public class MenuController {
     }
 
     @RequestMapping(value = "menu/tree",method = RequestMethod.GET)
-    public String menuTree(Model model){
+    public String menuTree( String menuId,Model model){
+        model.addAttribute("selectMenuId",menuId);
         return "system/menuTree";
     }
 

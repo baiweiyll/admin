@@ -12,6 +12,7 @@
             <div class="input-icon ">
                 <i class="fa fa fa-search font-green"></i>
                 <input type="text" class="form-control input-circle" placeholder="搜索菜单" id="searchMenu">
+                <input type="hidden" id="selectMenuId" value="${selectMenuId}">
             </div>
         </div>
         <div id="menuTree" class="tree-demo"></div>

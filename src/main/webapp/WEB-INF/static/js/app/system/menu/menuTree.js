@@ -3,6 +3,7 @@
  */
 define(function(require, exports, module) {
 
+    var check = require("util/checkUtil");
     var addMenu = require("system/menu/addMenu");
 
     function initTree(){
@@ -37,6 +38,15 @@ define(function(require, exports, module) {
                 }
             },
             "plugins": ["types","search"]
+        }).on("ready.jstree", function (e,data) {
+
+            var selectId = $('#selectMenuId').val();
+            if (selectId && selectId.length > 1) {
+                data.instance.select_node(selectId);
+            } else {
+                data.instance.select_node("-1");
+            }
+            //module.exports.selectNode("df7ce823c5b24ff9bada43d992f373e6");
         });
     }
 
