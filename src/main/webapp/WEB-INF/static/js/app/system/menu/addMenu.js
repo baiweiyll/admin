@@ -3,7 +3,6 @@
  */
 define(function(require, exports, module){
     var layout = require("layout/main");
-    var menuList = require("system/menu/main");
 
     function addMenu(){
       if($("#addMenuForm").valid()){
@@ -20,9 +19,10 @@ define(function(require, exports, module){
               },
               success:function(){
                   //关闭窗口
-                  $('#ajax-modal').modal('hide');
+                  $('#addMenu-modal').modal('hide');
                   //刷新父页面
                   layout.refresh(function(){
+                      var menuList = require("system/menu/main");
                       //展开对应节点
                       menuList.expandNode($("#parentId").val());
                   });
@@ -52,9 +52,9 @@ define(function(require, exports, module){
         $("#addMenuOk").click(function(){
             addMenu();
         });
-        $("#parentId").click(function(){
+        $("#parentName").click(function(){
             var $modal = $('#menuTree-modal');
-            $modal.load(basePath + 'sys/menu/tree', null, function(){
+            $modal.load(basePath + 'sys/menu/tree',"menuId="+$("#parentId").val(), function(){
                 $modal.modal();
             });
         });
@@ -67,6 +67,12 @@ define(function(require, exports, module){
                 bindEvent();
             });
 
+        },
+        setParent:function(id,name){
+            if ("-1" != id) {
+                $("#parentId").val(id);
+            }
+            $("#parentName").val(name);
         }
     }
 

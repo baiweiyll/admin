@@ -15,6 +15,14 @@ import java.io.Serializable;
  */
 public class JsTree implements Serializable{
 
+
+    public JsTree() {
+        this.id = "-1";
+        this.parent = "#";
+        this.text = "根节点";
+        this.icon = "icon-settings";
+    }
+
     public JsTree(Menu menu) {
         if (null != menu) {
             setId(menu.getId());

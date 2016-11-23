@@ -3,6 +3,8 @@
  */
 define(function(require, exports, module) {
 
+    var addMenu = require("system/menu/addMenu");
+
     function initTree(){
         HoldOn.open();
         $.ajax({
@@ -46,6 +48,16 @@ define(function(require, exports, module) {
                 var v = $('#searchMenu').val();
                 $('#menuTree').jstree(true).search(v);
             }, 250);
+        });
+
+        $('#menuTreeOk').click(function(){
+            var sNode = $.jstree.reference('#menuTree').get_selected(true);
+            if (sNode && sNode.length ==1) {
+                addMenu.setParent(sNode[0].id,sNode[0].text);
+                $('#menuTree-modal').modal('hide');
+            } else {
+                toastr.error("请选择菜单");
+            }
         });
     }
     module.exports = {

@@ -17,7 +17,8 @@
             <div class="form-group">
                 <label class="col-md-3 control-label">父级菜单<span class="required" aria-required="true"> * </span></label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="parentId" name="parentId">
+                    <input type="text" class="form-control" id="parentName" name="parentName" required readonly>
+                    <input type="hidden" class="form-control" id="parentId" name="parentId">
                 </div>
             </div>
             <div class="form-group">
@@ -58,7 +59,7 @@
         <i class="fa fa-check"></i>
         确定
     </a>
-    <a href="javascript:;" class="btn "  data-toggle="modal" data-target="#ajax-modal">
+    <a href="javascript:;" class="btn "  data-toggle="modal" data-target="#addMenu-modal">
         <i class="fa fa-times"></i>
         取消
     </a>

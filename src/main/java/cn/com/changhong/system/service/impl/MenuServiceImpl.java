@@ -53,6 +53,8 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu> implements MenuServic
         example.orderBy("sort").desc();
         List<Menu> list = super.selectByExample(example);
         List<JsTree> result = new ArrayList<JsTree>();
+        JsTree root = new JsTree();
+        result.add(root);
         for (Menu menu:list) {
             result.add(new JsTree(menu));
         }

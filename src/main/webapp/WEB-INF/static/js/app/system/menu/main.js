@@ -5,6 +5,7 @@ define(function(require, exports, module) {
 
     var layout = require("layout/main");
     var dialog = require("util/dialogUtil");
+    var addMenu = require("system/menu/addMenu");
 
     function initTreeTable(){
         //collapsed expanded
@@ -24,15 +25,18 @@ define(function(require, exports, module) {
             var $modal = $('#addMenu-modal');
             $modal.load(basePath + 'sys/addMenuView', null, function(){
                 $modal.modal();
+                addMenu.setParent("-1","根节点");
             });
         });
 
         //添加子菜单事件
         $("a[id^='addChildMenu']").click(function(){
-            alert($(this).attr("data"));
+            var menuId = $(this).attr("data");
+            var menuName = $(this).attr("menuName");
             var $modal = $('#addMenu-modal');
             $modal.load(basePath + 'sys/addMenuView', null, function(){
                 $modal.modal();
+                addMenu.setParent(menuId,menuName);
             });
         });
 
@@ -52,6 +56,7 @@ define(function(require, exports, module) {
             }
             var menuId = $(this).attr("data");
             var menuName = $(this).attr("menuName");
+            var pid = $(this).attr("pid");
             dialog.showWarningConfirm("确定要删除菜单吗?","请确保被删除菜单["+menuName+"]无孩子节点!",function(){
                 //关闭弹窗
                 swal.close();
@@ -72,7 +77,9 @@ define(function(require, exports, module) {
                         layout.refresh(function(){
                             toastr.success('删除菜单['+menuName+']成功');
                             //展开对应节点
-                            //menuList.expandNode($("#parentId").val());
+                            if (pid && pid.length > 1) {
+                                module.exports.expandNode(pid);
+                            }
                         });
 
                     }
@@ -85,7 +92,7 @@ define(function(require, exports, module) {
     module.exports = {
         expandNode:function(nodeId) {
             if (nodeId) {
-                $("#treeTable").treetable("expandNode",nodeId);
+                $("#treeTable").treetable("reveal",nodeId);
             }
         },
         init:function(){
