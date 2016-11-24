@@ -30,7 +30,7 @@
         <mybatis-generator-core.version>1.3.2</mybatis-generator-core.version>
         <mysql-connector-java.version>5.1.36</mysql-connector-java.version>
         <!-- mybatis generator config -->
-        <mybatis-generator.module>admin</mybatis-generator.module>
+        <mybatis-generator.module>system</mybatis-generator.module>
         <targetJavaProject>${basedir}/src/main/java</targetJavaProject>
         <targetMapperPackage>cn.com.changhong.${mybatis-generator.module}.mapper</targetMapperPackage>
         <targetModelPackage>cn.com.changhong.${mybatis-generator.module}.model</targetModelPackage>

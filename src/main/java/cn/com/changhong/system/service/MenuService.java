@@ -3,6 +3,8 @@ package cn.com.changhong.system.service;
 import cn.com.changhong.common.service.BaseService;
 import cn.com.changhong.system.dto.JsTree;
 import cn.com.changhong.system.model.Menu;
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -21,4 +23,7 @@ public interface MenuService extends BaseService<Menu>{
     public List<Menu> getTreeTable();
 
     public List<JsTree> getJsTree();
+
+    public ResponseEntity<JSONObject> delMenu(String menuId);
+
 }

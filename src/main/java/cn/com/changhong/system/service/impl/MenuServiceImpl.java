@@ -2,14 +2,20 @@ package cn.com.changhong.system.service.impl;
 
 import cn.com.changhong.common.Constants;
 import cn.com.changhong.common.service.impl.BaseServiceImpl;
+import cn.com.changhong.common.util.ResponseUtil;
 import cn.com.changhong.system.dto.JsTree;
 import cn.com.changhong.system.dto.MenuDto;
 import cn.com.changhong.system.dto.MenuTree;
 import cn.com.changhong.system.mapper.MenuMapper;
+import cn.com.changhong.system.mapper.RoleMenuMapper;
 import cn.com.changhong.system.model.Menu;
+import cn.com.changhong.system.model.RoleMenu;
 import cn.com.changhong.system.service.MenuService;
+import cn.com.changhong.system.service.RoleMenuService;
 import cn.com.changhong.system.util.MenuUtil;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -29,6 +35,9 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu> implements MenuServic
 
     @Autowired
     MenuMapper menuMapper;
+
+    @Autowired
+    RoleMenuService roleMenuService;
 
     @Override
     public String getMenuByUserId(String userId) {
@@ -59,6 +68,25 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu> implements MenuServic
             result.add(new JsTree(menu));
         }
         return result;
+    }
+
+    @Override
+    public ResponseEntity<JSONObject> delMenu(String menuId) {
+        //检查父子关系
+        Menu condition = new Menu();
+        condition.setParentId(menuId);
+        int count = selectCount(condition);
+        if (count > 0) {
+            return ResponseUtil.badRequest("请先删除子菜单");
+        }
+        //检查与角色关联关系
+        RoleMenu rm = new RoleMenu();
+        rm.setMenuId(menuId);
+        if (roleMenuService.selectCount(rm) > 0) {
+            return ResponseUtil.badRequest("菜单已与角色关联，不能删除");
+        }
+        deleteByPrimaryKey(menuId);
+        return ResponseUtil.ok();
     }
 
 }

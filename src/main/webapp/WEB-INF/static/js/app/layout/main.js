@@ -83,6 +83,12 @@ define(function(require, exports, module) {
 
         });
     }
+
+    function ajaxDefaultSet(){
+        $.ajaxSetup({
+            error:check.ajaxError
+        });
+    }
     module.exports = {
         refresh:function(callback){
             var currentMenuId = $('#currentMenuId').val();
@@ -90,6 +96,7 @@ define(function(require, exports, module) {
             loadMainContent($('#'+currentMenuId),callback);
         },
         init:function(){
+            ajaxDefaultSet();
             bindEvent();
             //加载首页
             loadMainContent($("#index"));

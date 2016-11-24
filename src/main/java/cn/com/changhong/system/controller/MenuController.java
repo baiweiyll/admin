@@ -6,6 +6,7 @@ import cn.com.changhong.system.service.MenuService;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -61,17 +62,8 @@ public class MenuController {
     }
 
     @RequestMapping(value = "delMenu",method = RequestMethod.GET)
-    public @ResponseBody JSONObject delMenu(@RequestParam(name="menuId") String menuId){
-        Menu condition = new Menu();
-        condition.setParentId(menuId);
-        JSONObject json = new JSONObject();
-        int count = menuService.selectCount(condition);
-        if (count > 0) {
-            json.put("errorMsg","请先删除子菜单");
-            return json;
-        }
-        menuService.deleteByPrimaryKey(menuId);
-        return json;
+    public @ResponseBody ResponseEntity<JSONObject> delMenu(@RequestParam(name="menuId") String menuId){
+        return menuService.delMenu(menuId);
     }
 
     @RequestMapping(value = "jstree",method = RequestMethod.GET)

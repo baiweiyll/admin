@@ -1178,6 +1178,9 @@
         }
     } );
 
+    //ajax 全局错误处理
+
+
     seajs.use("layout/main",function(layout){
         layout.init();
     });

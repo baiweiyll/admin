@@ -69,10 +69,6 @@ define(function(require, exports, module) {
                         $("#maincontent").LoadingOverlay("hide");
                     },
                     success:function(data){
-                        if (data && data.errorMsg) {
-                            toastr.error(data.errorMsg);
-                            return;
-                        }
                         //刷新父页面
                         layout.refresh(function(){
                             toastr.success('删除菜单['+menuName+']成功');
