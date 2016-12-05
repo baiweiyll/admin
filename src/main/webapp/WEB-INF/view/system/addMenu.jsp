@@ -31,7 +31,7 @@
             <div class="form-group">
                 <label class="col-md-3 control-label">菜单链接</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" placeholder="请输入相对路径" id="href" name="href" value=" ${menu.href}">
+                    <input type="text" class="form-control" placeholder="请输入相对路径" id="href" name="href" value="${menu.href}">
                 </div>
             </div>
             <div class="form-group">
