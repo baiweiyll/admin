@@ -26,4 +26,6 @@ public interface MenuService extends BaseService<Menu>{
 
     public ResponseEntity<JSONObject> delMenu(String menuId);
 
+    public ResponseEntity<JSONObject> addOrUpdate(Menu menu);
+
 }

@@ -17,38 +17,39 @@
             <div class="form-group">
                 <label class="col-md-3 control-label">父级菜单<span class="required" aria-required="true"> * </span></label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="parentName" name="parentName" required readonly>
-                    <input type="hidden" class="form-control" id="parentId" name="parentId">
+                    <input type="text" class="form-control" id="parentName" name="parentName" value="${menu.remarks}" required readonly>
+                    <input type="hidden" class="form-control" id="id" name="id" value="${menu.id}">
+                    <input type="hidden" class="form-control" id="parentId" name="parentId" value="${menu.parentId}">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-3 control-label">菜单名称<span class="required" aria-required="true"> * </span></label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="name" name="name" required>
+                    <input type="text" class="form-control" id="name" name="name" required value="${menu.name}">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-3 control-label">菜单链接</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" placeholder="请输入相对路径" id="href" name="href">
+                    <input type="text" class="form-control" placeholder="请输入相对路径" id="href" name="href" value=" ${menu.href}">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-3 control-label">菜单权限</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="permission" name="permission">
+                    <input type="text" class="form-control" id="permission" name="permission" value="${menu.permission}">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-3 control-label">菜单排序<span class="required" aria-required="true"> * </span></label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="sort" name="sort">
+                    <input type="text" class="form-control" id="sort" name="sort" value="${menu.sort}">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-3 control-label">菜单图标</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="icon" name="icon">
+                    <input type="text" class="form-control" id="icon" name="icon" value="${menu.icon}">
                 </div>
             </div>
         </div>

@@ -1159,6 +1159,14 @@
     toastr.options.progressBar = true;
     toastr.options.closeButton = true;
 
+    //扩展验证
+    $.validator.addMethod("notEqual", function(value,element, param) {
+        if (param.funOne() == "" && param.funTwo() == "") {
+            return true;
+        }
+        return  param.funOne() !== param.funTwo();
+    }, '请重新选择一个不同的数据');
+
     //jquery 全局验证
     $.validator.setDefaults( {
         errorElement: 'span', //default input error message container

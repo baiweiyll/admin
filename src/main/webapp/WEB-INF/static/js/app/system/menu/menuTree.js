@@ -63,8 +63,8 @@ define(function(require, exports, module) {
         $('#menuTreeOk').click(function(){
             var sNode = $.jstree.reference('#menuTree').get_selected(true);
             if (sNode && sNode.length ==1) {
-                addMenu.setParent(sNode[0].id,sNode[0].text);
                 $('#menuTree-modal').modal('hide');
+                addMenu.setParent(sNode[0].id,sNode[0].text);
             } else {
                 toastr.error("请选择菜单");
             }

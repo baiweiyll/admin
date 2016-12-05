@@ -5,6 +5,7 @@ import cn.com.changhong.system.model.Menu;
 import cn.com.changhong.system.service.MenuService;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -49,16 +50,28 @@ public class MenuController {
     }
 
     @RequestMapping(value = "addMenuView",method = RequestMethod.GET)
-    public String addMenuView(){
+    public String addMenuView(String menuId,Model model){
+        if (StringUtils.isNotBlank(menuId)) {
+            Menu menu = menuService.selectByPrimaryKey(menuId);
+            if (null != menu) {
+                if (StringUtils.isBlank(menu.getParentId())) {
+                    menu.setParentId("");
+                    menu.setRemarks("根节点");
+                } else {
+                    Menu p = menuService.selectByPrimaryKey(menu.getParentId());
+                    if (null != p) {
+                        menu.setRemarks(p.getName());
+                    }
+                }
+                model.addAttribute("menu",menu);
+            }
+        }
         return "system/addMenu";
     }
 
     @RequestMapping(value = "addMenu",method = RequestMethod.POST)
-    public @ResponseBody JSONObject addMenu(Menu menu){
-        menu.setCreateBy("admin");
-        menu.setCreateDate(new Date());
-        menuService.insert(menu);
-        return new JSONObject();
+    public @ResponseBody ResponseEntity<JSONObject> addMenu(Menu menu){
+        return menuService.addOrUpdate(menu);
     }
 
     @RequestMapping(value = "delMenu",method = RequestMethod.GET)
@@ -69,6 +82,20 @@ public class MenuController {
     @RequestMapping(value = "jstree",method = RequestMethod.GET)
     public @ResponseBody  List<JsTree> getJsTree(){
         return menuService.getJsTree();
+    }
+
+    @RequestMapping(value = "validMenuParent",method = RequestMethod.POST)
+    public @ResponseBody Boolean validMenuParent( String menuId,String parentId){
+        if (StringUtils.isBlank(menuId)) {
+            return true;
+        }
+        Menu condition = new Menu();
+        condition.setId(parentId);
+        condition.setParentId(menuId);
+        if (menuService.selectCount(condition) > 0) {
+            return false;
+        }
+        return true;
     }
 
 }

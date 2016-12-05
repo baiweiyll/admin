@@ -42,9 +42,9 @@ define(function(require, exports, module) {
 
         //编辑菜单事件
         $("a[id^='editMenu']").click(function(){
-            alert($(this).attr("data"));
+            var menuId = $(this).attr("data");
             var $modal = $('#addMenu-modal');
-            $modal.load(basePath + 'sys/addMenuView', null, function(){
+            $modal.load(basePath + 'sys/addMenuView', "menuId=" + menuId, function(){
                 $modal.modal();
             });
         });

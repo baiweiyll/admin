@@ -14,12 +14,14 @@ import cn.com.changhong.system.service.MenuService;
 import cn.com.changhong.system.service.RoleMenuService;
 import cn.com.changhong.system.util.MenuUtil;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -59,7 +61,7 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu> implements MenuServic
     @Override
     public List<JsTree> getJsTree() {
         Example example = new Example(Menu.class);
-        example.orderBy("sort").desc();
+        example.orderBy("sort").asc();
         List<Menu> list = super.selectByExample(example);
         List<JsTree> result = new ArrayList<JsTree>();
         JsTree root = new JsTree();
@@ -86,6 +88,31 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu> implements MenuServic
             return ResponseUtil.badRequest("菜单已与角色关联，不能删除");
         }
         deleteByPrimaryKey(menuId);
+        return ResponseUtil.ok();
+    }
+
+    @Override
+    public ResponseEntity<JSONObject> addOrUpdate(Menu menu) {
+        if (null != menu && StringUtils.isNotBlank(menu.getId())) {
+            if (menu.getId().equals(menu.getParentId())) {
+                return ResponseUtil.badRequest("父级菜单不能关联自己");
+            }
+            //父子互换检查
+            Menu condition = new Menu();
+            condition.setId(menu.getParentId());
+            condition.setParentId(menu.getId());
+            if (selectCount(condition) > 0) {
+                return ResponseUtil.badRequest("父级菜单不能选择自己的孩子节点");
+            }
+            menu.setUpdateBy("admin");
+            menu.setUpdateDate(new Date());
+            updateByPrimaryKeySelective(menu);
+        } else {
+            menu.setId(null);
+            menu.setCreateBy("admin");
+            menu.setCreateDate(new Date());
+            insert(menu);
+        }
         return ResponseUtil.ok();
     }
 
