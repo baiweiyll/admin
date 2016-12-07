@@ -499,7 +499,7 @@
                 </div>
 
                 <input type="hidden" id="currentMenuId"/>
-                <div class="row" id="maincontent"></div>
+                <div id="maincontent"></div>
                 <!-- END PAGE BAR -->
                 <!-- BEGIN PAGE TITLE-->
 
