@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
  */
 public class ResponseUtil {
 
+    //bw test
     public static final String ERROR_MESSAGE_KEY = "errorMsg";
 
     private ResponseUtil(){}
